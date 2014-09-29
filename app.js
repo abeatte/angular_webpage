@@ -1,7 +1,7 @@
 angular.module('flapperNews', ['ui.router'])
     .config([
         '$stateProvider',
-        '$urlRouteProvider',
+        '$urlRouterProvider',
         function($stateProvider, $urlRouterProvider) {
 
             $stateProvider
