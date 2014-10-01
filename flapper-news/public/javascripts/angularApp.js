@@ -10,7 +10,7 @@ angular.module('flapperNews', ['ui.router'])
                     templateUrl: '/home.html',
                     controller: 'MainCtrl',
                     resolve: {
-                        postPromis: ['posts', function(posts) {
+                        postPromise: ['posts', function(posts) {
                             return posts.getAll();
                         }]
                     }
@@ -29,7 +29,7 @@ angular.module('flapperNews', ['ui.router'])
             $urlRouterProvider.otherwise('home');
         }
     ])
-    .factory('posts', [$http, function($http) {
+    .factory('posts', ['$http', function($http) {
         var o = {
             posts: []
         };
@@ -81,17 +81,17 @@ angular.module('flapperNews', ['ui.router'])
         }])
     .controller('PostsCtrl', [
         '$scope',
-        '$posts',
+        'posts',
         'post',
         function ($scope, posts, post) {
             $scope.post = post;
-//            $scope.addComment = function() {
-//                if($scope.body === '') { return; }
-//                $scope.posts.comments.push({
-//                    body: $scope.body,
-//                    author: 'user',
-//                    upvotes: 0
-//                });
-//                $scope.body = '';
-//            };
+            $scope.addComment = function() {
+                if($scope.body === '') { return; }
+                $scope.posts.comments.push({
+                    body: $scope.body,
+                    author: 'user',
+                    upvotes: 0
+                });
+                $scope.body = '';
+            };
         }]);

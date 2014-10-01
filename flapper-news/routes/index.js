@@ -46,9 +46,9 @@ router.param('post', function(req, res, next, id) {
 });
 
 /* GET post */
-router.get('/posts/:post', function(req, res) {
+router.get('/posts/:post', function(req, res, next) {
     req.post.populate('comments', function(err, post) {
-        res.json(req.post);
+        res.json(post);
     });
 });
 
@@ -74,7 +74,7 @@ router.post('/posts/:post/comments', function(req, res, next) {
             if(err){ return next(err); }
 
             res.json(comment);
-        })
+        });
     });
 });
 
