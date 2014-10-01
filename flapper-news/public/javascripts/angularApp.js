@@ -1,9 +1,3 @@
-require('./models/Posts');
-require('/models/Comments');
-
-var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/news');
-
 angular.module('flapperNews', ['ui.router'])
     .config([
         '$stateProvider',
