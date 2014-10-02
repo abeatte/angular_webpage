@@ -78,10 +78,7 @@ router.post('/posts/:post/comments', function(req, res, next) {
     });
 });
 
-/*
-*  PUT upvote comment
-*  TODO: may be wrong
-*/
+/* PUT upvote comment */
 router.put('/posts/:post/comments/:comment/upvote', function(req, res, next) {
     req.comment.upvote(function(err, post){
         if (err) { return next(err); }
