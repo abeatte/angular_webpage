@@ -3723,7 +3723,7 @@
      *
      * @example
      * Here we decorate the {@link ng.$log $log} service to convert warnings to errors by intercepting
-     * calls to {@link ng.$log#error $log.warn()}.
+     * calls to {@link error $log.warn()}.
      * ```js
      *   $provide.decorator('$log', ['$delegate', function($delegate) {
  *     $delegate.warn = $delegate.error;
