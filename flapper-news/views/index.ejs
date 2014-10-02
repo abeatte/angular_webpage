@@ -87,7 +87,7 @@
         </span>
     </div>
 
-    <form type="text/ng-template" id="/posts.html"
+    <form ng-submit="addComment()"
           style="margin-top:30px;">
         <h3>Add a new comment</h3>
 
@@ -95,7 +95,8 @@
             <input type="text"
                     class="form-control"
                     placeholder="Comment"
-                    ng-model="body"/>
+                    ng-model="body"
+                    ng-init="body=''"/>
         </div>
         <button type="submit" class="btn btn-primary">Post</button>
     </form>
